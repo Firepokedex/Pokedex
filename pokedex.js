@@ -1,6 +1,7 @@
 
 const pokemonCount = 151;
 var pokedex = {}; // {1: {"name": "bulbasaur", "img" : url, "type" : ["grass", "poison"], "desc" : "...."}}
+var pokemonId = 1;
 
 window.onload = async function() {
     for (let i = 1; i <= pokemonCount; i++) {
@@ -15,8 +16,6 @@ window.onload = async function() {
     }
 
     document.getElementById("pokemon-description").innerText = pokedex[1]["desc"];
-
-    console.log(pokedex)
 }
 
 async function getPokemon(num) {
@@ -28,18 +27,19 @@ async function getPokemon(num) {
     let pokemonName = pokemon["name"];
     let pokemonType = pokemon["types"];
     let pokemonImg = pokemon["sprites"]["front_default"];
+    let pokemonShinyImg = pokemon["sprites"]["front_shiny"];
 
     res = await fetch(pokemon["species"]["url"]);
     let pokemonDesc = await res.json();
 
     //Get the pokemon description
     pokemonDesc = pokemonDesc["flavor_text_entries"][9]["flavor_text"];
-    pokedex[num] = {"name": pokemonName, "img": pokemonImg, "types": pokemonType, "desc": pokemonDesc}
-
+    pokedex[num] = {"name": pokemonName, "img": pokemonImg, "types": pokemonType, "desc": pokemonDesc, "shinyImg": pokemonShinyImg};
 }
 
 function updatePokemon() {
     document.getElementById("pokemon-img").src = pokedex[this.id]["img"];
+    pokemonId = this.id;
 
     //Remove previous pokemon type
     let typesDiv = document.getElementById("pokemon-types"); 
@@ -59,4 +59,8 @@ function updatePokemon() {
 
     //Update pokemon description
     document.getElementById("pokemon-description").innerText = pokedex[this.id]["desc"];
+}
+
+function updateShinySprite() {
+    document.getElementById("pokemon-img").src = pokedex[pokemonId]["shinyImg"];
 }

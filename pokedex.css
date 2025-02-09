@@ -24,6 +24,19 @@ body {
     text-align: center;
 }
 
+#pokemon-shiny {
+    margin-top: 10px;
+}
+
+#shiny-button {
+    padding: 3px;
+    margin: 5px;
+    background-color: yellow;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 #pokemon-list {
     width: 250px;
     height: 500px;
