@@ -1,3 +1,21 @@
+/*Scrollbar style*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
 body {
     background: url("./pokemon-bg.jpg") no-repeat;
     background-size: cover;
@@ -169,4 +187,5 @@ body {
     padding: 2px;
     font-size: 18px;
     overflow-y: auto;
+    text-align: left;
 }

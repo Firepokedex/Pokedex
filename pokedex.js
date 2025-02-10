@@ -14,7 +14,7 @@ window.onload = async function() {
         pokemon.addEventListener("click", updatePokemon);
         document.getElementById("pokemon-list").append(pokemon);
     }
-
+    
     document.getElementById("pokemon-description").innerText = pokedex[1]["desc"];
 }
 
@@ -33,7 +33,7 @@ async function getPokemon(num) {
     let pokemonDesc = await res.json();
 
     //Get the pokemon description
-    pokemonDesc = pokemonDesc["flavor_text_entries"][9]["flavor_text"];
+    pokemonDesc = pokemonDesc["flavor_text_entries"][9]["flavor_text"].replace(/\n/g, " ");
     pokedex[num] = {"name": pokemonName, "img": pokemonImg, "types": pokemonType, "desc": pokemonDesc, "shinyImg": pokemonShinyImg};
 }
 
