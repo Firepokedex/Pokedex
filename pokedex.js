@@ -64,3 +64,7 @@ function updatePokemon() {
 function updateShinySprite() {
     document.getElementById("pokemon-img").src = pokedex[pokemonId]["shinyImg"];
 }
+
+function updateNormalSprite() {
+    document.getElementById("pokemon-img").src = pokedex[pokemonId]["img"];
+}

@@ -1,6 +1,6 @@
 /*Scrollbar style*/
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 15px;
 }
 
 ::-webkit-scrollbar-track {
@@ -55,11 +55,21 @@ body {
     cursor: pointer;
 }
 
+#normal-button {
+    padding: 3px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: right;
+}
+
 #pokemon-list {
     width: 250px;
     height: 500px;
     font-size: 18px;
     overflow-y: auto;
+    cursor: pointer;
 }
 
 .pokemon-name {
