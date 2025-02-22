@@ -1,6 +1,6 @@
 
-const pokemonCount = 151;
-var pokedex = {}; // {1: {"name": "bulbasaur", "img" : url, "type" : ["grass", "poison"], "desc" : "...."}}
+const pokemonCount = 251;
+var pokedex = {}; // {1: {"name": "bulbasaur", "img" : url, "type" : ["grass", "poison"], "desc" : "....", "shinyImg": url}}
 var pokemonId = 1;
 
 window.onload = async function() {
@@ -14,7 +14,7 @@ window.onload = async function() {
         pokemon.addEventListener("click", updatePokemon);
         document.getElementById("pokemon-list").append(pokemon);
     }
-    
+    console.log(pokedex);
     document.getElementById("pokemon-description").innerText = pokedex[1]["desc"];
 }
 
@@ -35,6 +35,7 @@ async function getPokemon(num) {
     //Get the pokemon description
     pokemonDesc = pokemonDesc["flavor_text_entries"][9]["flavor_text"].replace(/\n/g, " ");
     pokedex[num] = {"name": pokemonName, "img": pokemonImg, "types": pokemonType, "desc": pokemonDesc, "shinyImg": pokemonShinyImg};
+    console.log(pokemon);
 }
 
 function updatePokemon() {
